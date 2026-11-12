@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéAPI Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls para rotar el modelo 3D con el mouse -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <header>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokéball Icon" class="poke-logo">
+        <h1>PokeAPI </h1>
+    </header>
+
+    <main>
+        <!-- SECCIÓN 1: Buscador individual de Pokémon -->
+        <section id="seccion-buscador">
+            <h2>Buscador Pokémon</h2>
+            <div class="input-group">
+                <input type="text" id="pokemon-input" list="pokemon-list" placeholder="Nombre o ID del Pokémon...">
+                <datalist id="pokemon-list">
+                    <!-- Se llena automáticamente con la PokéAPI -->
+                </datalist>
+                <button id="buscar-btn">Buscar</button>
+            </div>
+            <div id="resultado-pokemon" style="margin-top: 15px;"></div>
+        </section>
+
+        <!-- SECCIÓN 2: Tipos y Estadísticas -->
+        <section id="seccion-tipos">
+            <h2>Tipos y Estadísticas</h2>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 5px; margin-bottom: 15px;">Haz clic en un tipo para ver Pokémon de esa categoría:</p>
+            
+            <div class="types-grid" id="types-container">
+                <button class="type-badge" data-type="fire">Fuego</button>
+                <button class="type-badge" data-type="water">Agua</button>
+                <button class="type-badge" data-type="grass">Planta</button>
+                <button class="type-badge" data-type="electric">Eléctrico</button>
+                <button class="type-badge" data-type="psychic">Psíquico</button>
+                <button class="type-badge" data-type="dragon">Dragón</button>
+            </div>
+
+            <div id="tipo-resultado" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;"></div>
+        </section>
+
+        <!-- SECCIÓN 3: Escenario 3D interactivo -->
+        <section id="seccion-3d">
+            <h2>Escenario Pokébola 3D</h2>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 5px; margin-bottom: 15px;">Haz clic sostenido y arrastra el mouse para rotar la Pokébola.</p>
+            <div id="three-container"></div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
